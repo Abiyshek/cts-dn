@@ -1,0 +1,1 @@
+SELECT Events.title, COUNT(DISTINCT Registrations.registration_id) AS total_registrations, AVG(Feedback.rating) AS avg_rating FROM Events LEFT JOIN Registrations ON Events.event_id = Registrations.event_id LEFT JOIN Feedback ON Events.event_id = Feedback.event_id WHERE Events.status = 'completed' GROUP BY Events.event_id, Events.title;

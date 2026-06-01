@@ -1,0 +1,1 @@
+SELECT Events.title, COUNT(Sessions.session_id) AS session_count FROM Events LEFT JOIN Sessions ON Events.event_id = Sessions.event_id WHERE Events.status = 'upcoming' GROUP BY Events.event_id, Events.title;

@@ -1,0 +1,47 @@
+[
+  {
+    "id": 201,
+    "title": "Acoustic Night & Local Open Mic",
+    "category": "music",
+    "location": "Town Square Cafe",
+    "date": "2026-06-18",
+    "seats": 35,
+    "description": "Unplugged evening featuring local guitarists, singers, and poets. Free coffee for active performers!"
+  },
+  {
+    "id": 202,
+    "title": "Beginners Watercolor Painting Workshop",
+    "category": "art",
+    "location": "Community Art Studio",
+    "date": "2026-06-25",
+    "seats": 15,
+    "description": "Learn the basics of color blending, shading, and watercolor brush techniques with an expert guide."
+  },
+  {
+    "id": 203,
+    "title": "Town Hall Tech & Startup Meetup",
+    "category": "education",
+    "location": "Main Hall Annex",
+    "date": "2026-06-30",
+    "seats": 60,
+    "description": "Connect with local software developers, web designers, entrepreneurs, and tech enthusiasts."
+  },
+  {
+    "id": 204,
+    "title": "Classical Violin Recital & Tea Party",
+    "category": "music",
+    "location": "Grand Ballroom",
+    "date": "2026-07-02",
+    "seats": 20,
+    "description": "A delightful performance of classical violin masterpieces accompanied by premium teas and pastries."
+  },
+  {
+    "id": 205,
+    "title": "Community Yoga & Meditation Morning",
+    "category": "sports",
+    "location": "Lakeside Park Lawn",
+    "date": "2026-07-08",
+    "seats": 40,
+    "description": "An early morning refreshing alignment of body and mind with our certified yoga instructor."
+  }
+]

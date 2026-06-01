@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5 Exercises Showcase - Event Portal Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f8fafc;
+            padding-bottom: 80px;
+        }
+        .demo-box {
+            padding: 1.5rem;
+            background-color: #f1f5f9;
+            border: 1px dashed #cbd5e1;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+        .highlight-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .highlight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.1) !important;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark bg-gradient shadow-sm sticky-top">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <a class="navbar-brand fw-bold text-uppercase d-flex align-items-center gap-2" href="#">
+                <i class="bi bi-rocket-takeoff-fill text-warning"></i> Community Hub
+            </a>
+            
+            <div class="d-flex flex-column flex-md-row gap-3 my-2 my-md-0">
+                <ul class="navbar-nav flex-column flex-md-row gap-2">
+                    <li class="nav-item"><a class="nav-link active" href="#gridSec">Grids & Flex</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#typoSec">Typography</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#componentsSec">Components</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#formSec">Forms & Modals</a></li>
+                </ul>
+            </div>
+            
+            <form class="d-flex" role="search" onsubmit="event.preventDefault();">
+                <input class="form-control me-2 form-control-sm" type="search" placeholder="Search..." aria-label="Search">
+                <button class="btn btn-outline-warning btn-sm" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        
+        <div class="row align-items-center mb-5 bg-gradient bg-dark text-white p-5 rounded-4 shadow-lg border border-secondary">
+            <div class="col-lg-8">
+                <h1 class="display-1 fw-bold text-capitalize text-warning">Dashboard</h1>
+                <p class="lead text-muted-50 fs-4">
+                    A responsive single-page portal displaying all <strong class="text-info">Bootstrap 5 exercises</strong> solved interactively in one single dashboard.
+                </p>
+                <div class="d-flex gap-2 mt-4">
+                    <span class="badge bg-primary rounded-pill px-3 py-2"><i class="bi bi-cpu"></i> Bootstrap 5.3</span>
+                    <span class="badge bg-success rounded-pill px-3 py-2"><i class="bi bi-phone"></i> Fully Responsive</span>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center d-none d-lg-block">
+                <i class="bi bi-bootstrap-fill text-warning" style="font-size: 8rem; filter: drop-shadow(0 0 15px rgba(255, 193, 7, 0.4));"></i>
+            </div>
+        </div>
+
+        <section class="mb-5" id="gridSec">
+            <h2 class="h4 mb-4 border-bottom pb-2 fw-bold text-secondary">
+                <i class="bi bi-grid-3x3-gap-fill text-primary"></i> 1. Responsive Grid & Column Layouts
+            </h2>
+            
+            <h5 class="fw-semibold text-muted mb-3">Exercise 3: Three Columns Responsive (Mobile: 1, Tablet: 2, Desktop: 3)</h5>
+            <div class="row g-4 mb-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="demo-box border-primary bg-primary-subtle text-primary">Column A (Grid Item 1)</div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="demo-box border-success bg-success-subtle text-success">Column B (Grid Item 2)</div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="demo-box border-warning bg-warning-subtle text-warning">Column C (Grid Item 3)</div>
+                </div>
+            </div>
+
+            <h5 class="fw-semibold text-muted mb-3">Exercise 4.1: Sidebar vs Main Content Column Layout</h5>
+            <div class="row g-4 mb-4">
+                <div class="col-md-3">
+                    <div class="p-3 bg-secondary bg-opacity-10 rounded border border-secondary text-center fw-bold">
+                        Sidebar Column<br>(col-md-3)
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="p-3 bg-primary bg-opacity-10 rounded border border-primary text-center fw-bold">
+                        Main Content Column<br>(col-md-9)
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="fw-semibold text-muted mb-3">Exercise 4.2: Four Equal Width Columns (col-sm-3)</h5>
+            <div class="row g-3 mb-4">
+                <div class="col-sm-3"><div class="demo-box">Column 1</div></div>
+                <div class="col-sm-3"><div class="demo-box">Column 2</div></div>
+                <div class="col-sm-3"><div class="demo-box">Column 3</div></div>
+                <div class="col-sm-3"><div class="demo-box">Column 4</div></div>
+            </div>
+
+            <h5 class="fw-semibold text-muted mb-3">Exercise 5: Column Reordering & Alignment</h5>
+            <div class="row bg-light border p-4 rounded-3 justify-content-center align-items-center mb-4 text-center g-3" style="min-height: 120px;">
+                <div class="col-md-4 order-md-2">
+                    <div class="p-3 bg-danger text-white rounded shadow-sm">
+                        Item 1 (order-md-2)
+                    </div>
+                </div>
+                <div class="col-md-4 order-md-1">
+                    <div class="p-3 bg-info text-dark rounded shadow-sm">
+                        Item 2 (order-md-1)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5" id="typoSec">
+            <h2 class="h4 mb-4 border-bottom pb-2 fw-bold text-secondary">
+                <i class="bi bi-type-h1 text-success"></i> 2. Typography, Colors & Buttons
+            </h2>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="p-4 bg-white border rounded-3 shadow-sm h-100">
+                        <h4 class="mb-3 text-primary">Typography Utilities</h4>
+                        <div class="mb-2"><span class="display-6 fw-bold">Display-6 Text</span></div>
+                        <p class="lead">This is a paragraph with the <code>.lead</code> class.</p>
+                        <p class="text-muted">This text is formatted with <code>.text-muted</code> styling.</p>
+                        <p class="fw-bold">This text has the <code>.fw-bold</code> class.</p>
+                        
+                        <div class="mt-4 pt-3 border-top">
+                            <p class="text-uppercase text-danger mb-1">uppercase error tag</p>
+                            <p class="text-lowercase text-success mb-1">LOWERCASE SUCCESS TAG</p>
+                            <p class="text-capitalize text-info mb-0">capitalize event header title</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="p-4 bg-white border rounded-3 shadow-sm h-100">
+                        <h4 class="mb-3 text-primary">Exercise 9: Interactive Buttons Playground</h4>
+                        
+                        <h6 class="fw-bold text-muted mb-2">Contextual Classes & Outline Buttons:</h6>
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <button class="btn btn-primary">Primary</button>
+                            <button class="btn btn-secondary">Secondary</button>
+                            <button class="btn btn-success">Success</button>
+                            <button class="btn btn-danger">Danger</button>
+                            <button class="btn btn-warning">Warning</button>
+                            <button class="btn btn-outline-info">Outline Info</button>
+                            <button class="btn btn-outline-dark">Outline Dark</button>
+                        </div>
+
+                        <h6 class="fw-bold text-muted mb-2">Button Groups & Checkbox Toggle:</h6>
+                        <div class="btn-group mb-3" role="group" aria-label="Event Status Filter">
+                            <button type="button" class="btn btn-primary">All</button>
+                            <button type="button" class="btn btn-outline-secondary">Music</button>
+                            <button type="button" class="btn btn-outline-secondary">Cooking</button>
+                        </div>
+
+                        <div class="d-block">
+                            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                            <label class="btn btn-outline-success" for="btncheck1">Toggle Active Status</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5" id="componentsSec">
+            <h2 class="h4 mb-4 border-bottom pb-2 fw-bold text-secondary">
+                <i class="bi bi-card-heading text-warning"></i> 3. Premium Cards, Shadows & Gradients
+            </h2>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 highlight-card border-0 shadow-sm rounded-4 position-relative">
+                        <span class="position-absolute top-0 end-0 translate-middle badge rounded-pill bg-danger border border-light z-3 px-3 py-2" style="margin-right: -10px; margin-top: 15px;">
+                            <i class="bi bi-fire"></i> Featured
+                        </span>
+                        
+                        <div class="p-3">
+                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&auto=format&fit=crop&q=80" 
+                                 class="card-img-top rounded-3 border border-primary border-3" alt="Community gathering">
+                        </div>
+                        
+                        <div class="card-body pt-0">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-primary bg-gradient text-uppercase">Seminar</span>
+                                <span class="text-success fw-bold"><i class="bi bi-ticket-perforated"></i> Free</span>
+                            </div>
+                            
+                            <h5 class="card-title fw-bold text-dark">Urban Sourdough Seminar</h5>
+                            <p class="card-text text-muted fs-6">
+                                Join local chef sourdough bakers in an interactive panel about organic bread baking, fermentation, and culture.
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-4 pt-0 px-3">
+                            <button class="btn btn-primary w-100 rounded-pill shadow-sm" data-bs-toggle="modal" data-bs-target="#registrationModal">
+                                Learn More & Register
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-dark bg-gradient text-white">
+                        <h4 class="mb-4 text-warning fw-bold"><i class="bi bi-chat-left-heart-fill"></i> Community Review & Feedback</h4>
+                        
+                        <div class="d-flex align-items-start gap-3 border-bottom border-secondary pb-3 mb-3">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" 
+                                 class="rounded-circle border border-warning" alt="Avatar" style="width: 54px; height: 54px;">
+                            <div>
+                                <h6 class="mb-1 text-warning fw-bold">Sarah Jenkins <span class="badge bg-secondary ms-2 text-white-50">Local Resident</span></h6>
+                                <p class="mb-0 fs-6 text-white-50">
+                                    "The Symphony in the Park event last week was absolutely spectacular! We enjoyed the classical program so much under the skies. Truly makes our neighborhood special."
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-start gap-3">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" 
+                                 class="rounded-circle border border-info" alt="Avatar" style="width: 54px; height: 54px;">
+                            <div>
+                                <h6 class="mb-1 text-info fw-bold">Alex Rivera <span class="badge bg-secondary ms-2 text-white-50">Organizer</span></h6>
+                                <p class="mb-0 fs-6 text-white-50">
+                                    "Being able to publish and coordinate seat maps via the Local Event Portal simplifies logistics. Fantastic layout, and the floating forms are seamless."
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 pt-3 border-top border-secondary">
+                            <div class="row align-items-center g-3">
+                                <div class="col-sm-8">
+                                    <h6 class="mb-1 text-warning"><i class="bi bi-heart-fill"></i> Help Keep The Portal Free!</h6>
+                                    <p class="text-white-50 mb-0 small">Your minor contributions sponsor dynamic server fees and hosting bills.</p>
+                                </div>
+                                <div class="col-sm-4 text-sm-end">
+                                    <button class="btn btn-warning btn-sm fw-bold px-3 py-2 rounded-pill">Donate $5 <i class="bi bi-wallet2"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5" id="formSec">
+            <h2 class="h4 mb-4 border-bottom pb-2 fw-bold text-secondary">
+                <i class="bi bi-check2-square text-info"></i> 4. Interactive Forms & Modal Plugins
+            </h2>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="p-4 bg-white border rounded-3 shadow-sm">
+                        <h4 class="mb-3 text-primary">Registration Form</h4>
+                        
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingName" placeholder="Full Name">
+                            <label for="floatingName">Full Name</label>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+                            <label for="floatingEmail">Email Address</label>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <input type="text" class="form-control" placeholder="Choose username" aria-label="Username">
+                        </div>
+
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="termsCheck" checked>
+                            <label class="form-check-label text-muted" for="termsCheck">
+                                I agree to the community portal terms and guidelines
+                            </label>
+                        </div>
+
+                        <button class="btn btn-success bg-gradient w-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#registrationModal">
+                            Submit Registration <i class="bi bi-arrow-right-circle"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="p-4 bg-white border rounded-3 shadow-sm h-100">
+                        <h4 class="mb-3 text-primary"><i class="bi bi-question-circle"></i> Portal FAQ Section</h4>
+                        
+                        <div class="accordion accordion-flush" id="accordionFAQ">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="false" aria-controls="faqOne">
+                                        Is registration mandatory for events?
+                                    </button>
+                                </h2>
+                                <div id="faqOne" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body text-muted">
+                                        Yes. Due to seat and venue limitations, residents are required to reserve a ticket prior to the event date.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                                        Can I cancel a reserved event ticket?
+                                    </button>
+                                </h2>
+                                <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body text-muted">
+                                        Absolutely. Simply click "Cancel Registration" in your profile tab to return your ticket back to the public pool.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-top">
+                            <div class="alert alert-info d-none d-md-block mb-0">
+                                <h6 class="fw-bold"><i class="bi bi-info-circle-fill"></i> Tablet/Desktop Tip:</h6>
+                                <p class="small mb-0">This message card is responsive! It is hidden on mobile screens but appears dynamically on tablets and above using <code>d-none d-md-block</code> class rules.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header bg-success bg-gradient text-white rounded-top-4 py-3">
+                    <h5 class="modal-title fw-bold" id="modalTitle"><i class="bi bi-check-circle-fill"></i> Registration Complete!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <i class="bi bi-patch-check-fill text-success" style="font-size: 5rem;"></i>
+                    <h4 class="mt-3 fw-bold text-dark">Ticket Successfully Saved!</h4>
+                    <p class="text-muted mb-0">
+                        Thank you for reserving a ticket. A confirmation mail with the venue address, event itinerary, and barcode passes has been dispatched.
+                    </p>
+                </div>
+                <div class="modal-footer bg-light rounded-bottom-4 border-0">
+                    <button type="button" class="btn btn-secondary w-100 rounded-pill" data-bs-dismiss="modal">Close Dialog</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark bg-gradient text-white-50 text-center py-3 position-fixed bottom-0 start-0 end-0 border-top border-secondary z-3">
+        <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+            <p class="mb-0 small">&copy; 2026 Local Community Event Portal. Styled beautifully with Bootstrap 5 CDN.</p>
+            
+            <div class="d-flex gap-2">
+                <a class="btn btn-outline-secondary btn-sm rounded-circle px-2 py-1" href="#" aria-label="Facebook">
+                    <i class="bi bi-facebook text-white"></i>
+                </a>
+                <a class="btn btn-outline-secondary btn-sm rounded-circle px-2 py-1" href="#" aria-label="Twitter">
+                    <i class="bi bi-twitter-x text-white"></i>
+                </a>
+                <a class="btn btn-outline-secondary btn-sm rounded-circle px-2 py-1" href="#" aria-label="Instagram">
+                    <i class="bi bi-instagram text-white"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>

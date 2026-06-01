@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Exercises Showcase - Community Event Portal</title>
+    <style>
+        .internal-badge {
+            background-color: rgba(236, 72, 153, 0.2);
+            color: #ec4899;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navBar">
+        <a href="#welcome">Home</a>
+        <a href="#events">Upcoming Events</a>
+        <a href="#bulletin">Community Bulletin</a>
+        <a href="#admin">Admin Console</a>
+        <a href="#playground">Box Model Playground</a>
+    </nav>
+
+    <header id="mainHeader">
+        <h1 style="color: #ff4757; text-transform: uppercase; font-size: 3rem; font-weight: 900; letter-spacing: 0.05em; text-shadow: 0 4px 12px rgba(255, 71, 87, 0.4);">
+            Community Event Portal
+        </h1>
+        <p style="color: #cbd5e1; margin-top: 0.5rem; font-size: 1.2rem;">
+            A stylized portal using modern CSS3 standards (Exercise Showcase)
+        </p>
+    </header>
+
+    <main class="container">
+        
+        <div class="twoColLayout">
+            
+            <section class="mainContent" id="events">
+                <h2>Upcoming Local Events</h2>
+                <span class="internal-badge">Styled using Class & Element Selectors</span>
+                <p class="leadDescription">
+                    Welcome to the central portal for all local community events. In this section, we showcase event cards styled using standard CSS classes, box-model settings, margins, paddings, and background gradients.
+                </p>
+
+                <article class="eventCard">
+                    <span style="color: #38bdf8; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Music & Arts</span>
+                    <h3>Annual Symphony in the Park</h3>
+                    <p>Experience an evening of classical masterpieces under the starry night sky. Bring your own picnic blankets and enjoy free live music by the city orchestra.</p>
+                    <div style="margin-top: 1rem; font-size: 0.9rem; color: #10b981; font-weight: 500;">
+                        Date: June 15, 2026 | Remaining Seats: 45
+                    </div>
+                </article>
+
+                <article class="eventCard">
+                    <span style="color: #ec4899; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Education</span>
+                    <h3>Interactive Baking & Pastry Workshop</h3>
+                    <p>Learn the secrets of French sourdough and delicate macarons from master chef pastry professionals. All ingredients and baking equipment are fully supplied.</p>
+                    <div style="margin-top: 1rem; font-size: 0.9rem; color: #10b981; font-weight: 500;">
+                        Date: June 22, 2026 | Remaining Seats: 12
+                    </div>
+                </article>
+
+                <article class="eventCard">
+                    <span style="color: #eab308; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Sports & Health</span>
+                    <h3>Community Charity Morning Fun-Run</h3>
+                    <p>A fun and energizing 5K run around the green lake to raise funds for the newly designed community library and children's park.</p>
+                    <div style="margin-top: 1rem; font-size: 0.9rem; color: #ef4444; font-weight: 500;">
+                        Date: July 05, 2026 | Status: Sold Out
+                    </div>
+                </article>
+            </section>
+
+            <aside class="sidebarContent" id="admin">
+                <h2>Portal Admin</h2>
+                <p>Register a new community gathering or explore our admin stats table styled elegantly below.</p>
+
+                <form style="margin-top: 1.5rem;" onsubmit="event.preventDefault();">
+                    <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: #94a3b8;">Event Name</label>
+                    <input type="text" class="formInput" placeholder="e.g., Street Food Festival">
+                    
+                    <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: #94a3b8;">Max Participants</label>
+                    <input type="number" class="formInput" placeholder="e.g., 100">
+
+                    <button style="width: 100%; padding: 0.75rem; background: linear-gradient(90deg, #6366f1 0%, #4f46e5 100%); border: none; border-radius: 6px; color: white; font-weight: 600; cursor: pointer; transition: filter 0.2s;" onmouseover="this.style.filter='brightness(1.2)'" onmouseout="this.style.filter='none'">
+                        Publish Event
+                    </button>
+                </form>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Core Categories</h3>
+                <ul class="eventList">
+                    <li>🎵 Music & Performing Arts</li>
+                    <li>🧁 Culinary Arts & Cooking</li>
+                    <li>🏃 Wellness & Physical Sports</li>
+                    <li>🎨 Art Exhibitions & Galleries</li>
+                </ul>
+            </aside>
+        </div>
+
+        <section class="newsSection" id="bulletin">
+            <h2>Community Bulletin & News</h2>
+            <p style="margin-bottom: 1.5rem;">Read all about the town council's newly announced developments, local initiatives, and eco-friendly cleanups.</p>
+            <div class="newspaperColumns">
+                The City Council has approved a landmark budget for green initiatives this year, dedicating funds to build three community gardens and upgrade existing parks. Residents are invited to participate in the planning committees starting next Tuesday. Additionally, the local library will be hosting its summer reading challenge starting in early June, with generous rewards and prizes donated by local businesses for young readers who complete the book milestones.
+                
+                Simultaneously, the volunteer group "Green & Clean" has successfully planted over two hundred native trees along the riverside, creating a beautiful canopy path that will reduce soil erosion and provide cooling shade. The project will continue through autumn with new paths being cleared for cycling. Check back on this portal daily for the latest news on registrations, cancellations, and neighborhood highlights!
+            </div>
+        </section>
+
+        <section class="mainContent" style="margin-top: 2rem;">
+            <h2>Registered Event Stats</h2>
+            <p>A beautifully formatted table with centered text, borders, padding, collapsed margins, and clear zebra striping.</p>
+            
+            <div class="tableContainer">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Event Title</th>
+                            <th>Location</th>
+                            <th>Date</th>
+                            <th>Remaining Seats</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>101</td>
+                            <td>Annual Symphony in the Park</td>
+                            <td>Central City Gardens</td>
+                            <td>June 15, 2026</td>
+                            <td>45</td>
+                            <td>Music</td>
+                        </tr>
+                        <tr>
+                            <td>102</td>
+                            <td>Baking & Pastry Workshop</td>
+                            <td>Culinary Center Room A</td>
+                            <td>June 22, 2026</td>
+                            <td>12</td>
+                            <td>Cooking</td>
+                        </tr>
+                        <tr>
+                            <td>103</td>
+                            <td>Morning Fun-Run 5K</td>
+                            <td>Green Lake Pavilion</td>
+                            <td>July 05, 2026</td>
+                            <td>0</td>
+                            <td>Sports</td>
+                        </tr>
+                        <tr>
+                            <td>104</td>
+                            <td>Digital Photography Basics</td>
+                            <td>Town Hall Library</td>
+                            <td>July 12, 2026</td>
+                            <td>8</td>
+                            <td>Art</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="newsSection" id="playground">
+            <h2>Box Model Playground: Display vs. Visibility</h2>
+            <p>Below we demonstrate the difference between <code>display: none</code> (the element is completely removed from the layout) and <code>visibility: hidden</code> (the element is hidden but still occupies its structural spacing).</p>
+            
+            <div class="boxDemo">
+                <div class="boxItem">
+                    <h4>Box 1</h4>
+                    <p>This box is fully visible and occupies regular space in the layout.</p>
+                </div>
+                
+                <div class="boxItem hiddenDisplay">
+                    <h4>Box 2 (display: none)</h4>
+                    <p>You cannot see this, and it takes up no layout space!</p>
+                </div>
+
+                <div class="boxItem">
+                    <h4>Box 3</h4>
+                    <p>This box resides next to Box 1, shifting left because Box 2 has <code>display: none</code>.</p>
+                </div>
+            </div>
+
+            <div class="boxDemo" style="margin-top: 1.5rem;">
+                <div class="boxItem">
+                    <h4>Box A</h4>
+                    <p>This box is fully visible and occupies regular space in the layout.</p>
+                </div>
+                
+                <div class="boxItem hiddenVisibility">
+                    <h4>Box B (visibility: hidden)</h4>
+                    <p>You cannot see this, but it still reserves its column gap space!</p>
+                </div>
+
+                <div class="boxItem">
+                    <h4>Box C</h4>
+                    <p>This box is pushed to the third column because Box B is still taking up layout space.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mainContent" style="margin-top: 2rem; border-color: #f59e0b; background-color: rgba(245, 158, 11, 0.05);">
+            <h2 style="border-color: #f59e0b; color: #fbbf24;">DevTools Debugging Walkthrough</h2>
+            <p>To inspect, test, and debug the styles of this event portal:</p>
+            <ol style="margin-left: 2rem; margin-top: 1rem; color: #cbd5e1; line-height: 2;">
+                <li>Press <strong>F12</strong> or right-click anywhere and select <strong>Inspect</strong> to open Chrome Developer Tools.</li>
+                <li>Toggle the <strong>Device Toolbar</strong> (Ctrl + Shift + M) to simulate mobile view (< 768px) and watch navigation links stack and newspaper columns reduce.</li>
+                <li>Inspect elements under the <strong>Elements</strong> panel to observe the active margins, borders, and padding (Box Model layout).</li>
+                <li>Go to the <strong>Network</strong> tab to ensure <code>styles.css</code> has loaded successfully with a 200 OK status.</li>
+            </ol>
+        </section>
+        
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); color: #64748b; font-size: 0.9rem;">
+        <p>&copy; 2026 Local Community Event Portal. All rights reserved. CSS3 Exercise Demonstration.</p>
+    </footer>
+
+</body>
+</html>

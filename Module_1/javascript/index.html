@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Interactive Showcase - Local Community Event Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #0b0f19;
+            color: #f1f5f9;
+            line-height: 1.6;
+            padding-bottom: 80px;
+            background-image: radial-gradient(rgba(99, 102, 241, 0.1) 1.5px, transparent 1.5px);
+            background-size: 32px 32px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 2px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(to right, #818cf8, #e0f2fe, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .summary-banner {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 992px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(8px);
+        }
+
+        .panel h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #f8fafc;
+            border-left: 4px solid #6366f1;
+            padding-left: 0.75rem;
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-controls input, .filter-controls select {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: #0f172a;
+            color: white;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .filter-controls input:focus, .filter-controls select:focus {
+            border-color: #818cf8;
+            box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.2);
+        }
+
+        .event-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .event-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .event-card.full {
+            opacity: 0.7;
+            border-color: rgba(239, 68, 68, 0.2);
+        }
+
+        .category-badge {
+            align-self: flex-start;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .category-badge.music { background: rgba(168, 85, 247, 0.2); color: #c084fc; }
+        .category-badge.art { background: rgba(236, 72, 153, 0.2); color: #f472b6; }
+        .category-badge.sports { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .category-badge.education { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+
+        .event-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #f1f5f9;
+        }
+
+        .event-card .description {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-card .details {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .event-card .seats-left {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
+        .event-card .seats-left.sold-out {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-register {
+            background-color: #6366f1;
+            color: white;
+        }
+
+        .btn-register:hover {
+            background-color: #4f46e5;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-disabled {
+            background-color: #334155;
+            color: #64748b;
+            cursor: not-allowed;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            background: #0f172a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #818cf8;
+        }
+
+        .error-message {
+            color: #f87171;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: block;
+            font-weight: 500;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .alert-success {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid #10b981;
+            color: #34d399;
+        }
+
+        .alert-danger {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid #ef4444;
+            color: #f87171;
+        }
+
+        #loadingSpinner {
+            text-align: center;
+            padding: 2rem;
+            display: none;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(99, 102, 241, 0.1);
+            border-left-color: #6366f1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .console-box {
+            background: #090d16;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.8);
+            margin-top: 2rem;
+        }
+
+        .console-header {
+            background: #111827;
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .console-header h3 {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            font-family: monospace;
+        }
+
+        .console-body {
+            padding: 1rem;
+            height: 200px;
+            overflow-y: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            color: #34d399;
+            line-height: 1.5;
+        }
+
+        .framework-note {
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px dashed rgba(99, 102, 241, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #a5b4fc;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Local Community Event Portal</h1>
+        <p>Dynamic event listings, registrations, search filtering, and system simulation dashboard.</p>
+    </header>
+
+    <main class="container">
+        
+        <div class="summary-banner">
+            <div id="summaryText">Initializing event tracking system...</div>
+            <div>
+                <button class="btn btn-register" id="demoArrayBtn" style="background-color: #10b981;">
+                    Demonstrate Array Methods (Console)
+                </button>
+                <button class="btn btn-register" id="toggleConsoleBtn">
+                    Hide Live Web Console
+                </button>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            
+            <section class="panel">
+                <h2>Browse Community Events</h2>
+                
+                <div class="filter-controls">
+                    <input type="text" id="eventSearchInput" placeholder="🔍 Search events by title or keywords...">
+                    <select id="categorySelect">
+                        <option value="all">All Categories</option>
+                        <option value="music">🎵 Music</option>
+                        <option value="art">🎨 Art</option>
+                        <option value="education">🎓 Education</option>
+                        <option value="sports">🏃 Sports</option>
+                    </select>
+                </div>
+
+                <div id="loadingSpinner">
+                    <div class="spinner"></div>
+                    <p style="color: #64748b;">Fetching real-time event registry...</p>
+                </div>
+
+                <div class="event-cards-grid" id="eventCardsContainer">
+                </div>
+            </section>
+
+            <aside>
+                <section class="panel">
+                    <h2>Event Sign-Up</h2>
+                    
+                    <div id="formSuccessMessage" class="alert"></div>
+
+                    <form id="eventRegistrationForm">
+                        <div class="form-group">
+                            <label for="userName">Full Name</label>
+                            <input type="text" id="userName" name="userName" placeholder="Enter your full name">
+                            <span class="error-message" id="nameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userEmail">Email Address</label>
+                            <input type="email" id="userEmail" name="userEmail" placeholder="yourname@domain.com">
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventSelect">Select Event</label>
+                            <select id="eventSelect" name="eventSelect">
+                            </select>
+                            <span class="error-message" id="selectError"></span>
+                        </div>
+
+                        <input type="submit" id="submitBtn" class="btn btn-register" style="width: 100%; padding: 0.8rem;" value="Submit Registration">
+                    </form>
+                </section>
+
+                <section class="panel">
+                    <h2>Exercise 14: React / Vue Benefits</h2>
+                    <div class="framework-note">
+                        <strong>Why shift to frameworks like React/Vue?</strong>
+                        <p style="margin-top: 0.5rem; font-size: 0.85rem; line-height: 1.5; color: #cbd5e1;">
+                            1. <strong>Reactive Data Binding:</strong> The DOM updates automatically when state variables change, eliminating manual <code>querySelector()</code> and append logic.<br><br>
+                            2. <strong>Component Architecture:</strong> Event cards can be written as isolated reusable modules (JSX or templates), improving maintainability.<br><br>
+                            3. <strong>Virtual DOM:</strong> Optimizes browser paint cycles, resulting in superior performance for massive dynamic data portals.
+                        </p>
+                    </div>
+                </section>
+            </aside>
+        </div>
+
+        <div class="console-box" id="logOuterBox">
+            <div class="console-header">
+                <h3>Live Portal System Logs & Event Trigger Logs</h3>
+                <span style="color: #64748b; font-size: 0.75rem; font-family: monospace;">Simulated Console Output</span>
+            </div>
+            <div class="console-body" id="logContainer">
+                <div>System initiating...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="main.js"></script>
+
+</body>
+</html>

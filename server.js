@@ -25,6 +25,7 @@ const server = http.createServer((req, res) => {
       let contentType = 'text/html';
       if (ext === '.css') contentType = 'text/css';
       if (ext === '.js') contentType = 'text/javascript';
+      if (ext === '.json') contentType = 'application/json';
       
       res.writeHead(200, { 'Content-Type': contentType });
       res.end(content);

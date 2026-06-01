@@ -1,0 +1,1 @@
+SELECT Events.title, AVG(Feedback.rating) AS avg_rating FROM Events JOIN Feedback ON Events.event_id = Feedback.event_id GROUP BY Events.event_id, Events.title HAVING COUNT(Feedback.feedback_id) >= 10 ORDER BY avg_rating DESC;

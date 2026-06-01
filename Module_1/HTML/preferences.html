@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saving User Preferences</title>
+</head>
+<body style="font-family: Arial; background-color: #f0f0f0; margin: 20px; padding: 20px;">
+    <div style="background-color: white; padding: 20px; max-width: 600px; margin: 0 auto;">
+        <h1 style="text-align: center; color: #333;">User Preferences</h1>
+        <p style="text-align: center; color: #666;">Save your preferred event type</p>
+        <form>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; color: #555; font-weight: bold;">Select Preferred Event Type:</label>
+                <select style="width: 100%; padding: 8px; border: 1px solid #ddd;">
+                    <option value="">-- Choose an event --</option>
+                    <option value="Conference">Conference</option>
+                    <option value="Workshop">Workshop</option>
+                    <option value="Seminar">Seminar</option>
+                    <option value="Meetup">Meetup</option>
+                    <option value="Social Gathering">Social Gathering</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <p style="color: #28a745; font-weight: bold;">
+                    Your preference will be saved
+                </p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button 
+                    type="reset" 
+                    style="background-color: #dc3545; color: white; padding: 10px 20px; border: none; cursor: pointer; flex: 1;">
+                    Clear Preferences
+                </button>
+                <button 
+                    type="submit" 
+                    style="background-color: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer; flex: 1;">
+                    Save Preferences
+                </button>
+            </div>
+        </form>
+
+        <div style="margin-top: 20px; padding: 15px; background-color: #e7f3ff; border: 1px solid #b3d9ff; color: #004085;">
+            <strong>Storage Information:</strong><br>
+            localStorage - preferredEvent: Not set<br>
+            sessionStorage - sessionEvent: Not set
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+SELECT Users.full_name, Events.title, Events.city, Events.start_date FROM Users JOIN Registrations ON Users.user_id = Registrations.user_id JOIN Events ON Registrations.event_id = Events.event_id WHERE Events.status = 'upcoming' AND Users.city = Events.city ORDER BY Events.start_date;

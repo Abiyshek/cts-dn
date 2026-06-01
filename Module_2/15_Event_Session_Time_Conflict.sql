@@ -1,0 +1,1 @@
+SELECT Sessions1.event_id, Sessions1.title, Sessions2.title FROM Sessions AS Sessions1 JOIN Sessions AS Sessions2 ON Sessions1.event_id = Sessions2.event_id AND Sessions1.session_id <> Sessions2.session_id AND Sessions1.start_time < Sessions2.end_time AND Sessions1.end_time > Sessions2.start_time;
